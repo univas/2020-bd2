@@ -2,31 +2,37 @@ package br.edu.univas.si7.bd2.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="POSITION")
 public class Cargo implements Serializable { // nosso POJO
 
 	@Id
-	private int codigo;
+	@Column(name="CODE")
+	private Integer codigo;
+	
+	@Column(name="NAME", nullable=false, length=30)
 	private String nome;
 
 	public Cargo() {
 
 	}
 
-	public Cargo(int codigo, String nome) {
+	public Cargo(Integer codigo, String nome) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
 	}
 
-	public int getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 
