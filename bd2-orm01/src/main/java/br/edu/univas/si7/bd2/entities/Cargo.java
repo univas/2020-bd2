@@ -22,7 +22,7 @@ public class Cargo implements Serializable { // nosso POJO
 
 	}
 
-	public Cargo(Integer codigo, String nome) {
+	public Cargo(int codigo, String nome) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
