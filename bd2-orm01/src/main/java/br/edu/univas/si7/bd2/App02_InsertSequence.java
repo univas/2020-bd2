@@ -5,7 +5,7 @@ import javax.persistence.EntityManager;
 import br.edu.univas.si7.bd2.entities.Department;
 import br.edu.univas.si7.bd2.utils.HibernateUtil;
 
-public class App02 {
+public class App02_InsertSequence {
 	public static void main(String[] args) {
 
 		System.out.println("First Hibernate code...");

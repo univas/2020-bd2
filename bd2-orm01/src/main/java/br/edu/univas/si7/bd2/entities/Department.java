@@ -6,12 +6,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Department implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+//	@GeneratedValue(strategy=GenerationType.IDENTITY) //auto-incremento
+	
+	//usando sequence
+//	@GeneratedValue(strategy=GenerationType.SEQUENCE) //usa a sequence default: hibernate_sequence
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="codeSeqGenerator")
+	@SequenceGenerator(name="codeSeqGenerator", sequenceName="SEQ_DEPARTAMENTO", allocationSize=1)
 	private Integer code;
 	private String name;
 	

@@ -9,3 +9,9 @@ CREATE TABLE DEPARTMENT (
   NAME VARCHAR(30) NOT NULL,
   PRIMARY KEY (CODE)
 );
+
+CREATE SEQUENCE SEQ_DEPARTAMENTO START WITH 1; --gerador de números sequenciais
+
+--consulta o próximo valor da sequence
+SELECT nextval('SEQ_DEPARTAMENTO');
+
