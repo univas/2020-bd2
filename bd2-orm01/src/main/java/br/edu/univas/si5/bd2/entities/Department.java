@@ -1,4 +1,4 @@
-package br.edu.univas.si7.bd2.entities;
+package br.edu.univas.si5.bd2.entities;
 
 import java.io.Serializable;
 
@@ -6,21 +6,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Department implements Serializable {
 
 	@Id
-//	@GeneratedValue(strategy=GenerationType.IDENTITY) //auto-incremento
-	
-	//usando sequence
-//	@GeneratedValue(strategy=GenerationType.SEQUENCE) //usa a sequence default: hibernate_sequence
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="codeSeqGenerator")
-	@SequenceGenerator(name="codeSeqGenerator", sequenceName="SEQ_DEPARTAMENTO", allocationSize=1)
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // auto-incremento
 	private Integer code;
+
 	private String name;
-	
+
 	public Department() {
 	}
 
@@ -44,4 +39,5 @@ public class Department implements Serializable {
 	public String toString() {
 		return "Department [code=" + code + ", name=" + name + "]";
 	}
+	
 }

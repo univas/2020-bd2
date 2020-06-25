@@ -1,4 +1,4 @@
-package br.edu.univas.si7.bd2.utils;
+package br.edu.univas.si5.bd2.utils;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

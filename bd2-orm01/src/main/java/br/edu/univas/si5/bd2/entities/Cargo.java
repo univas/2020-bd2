@@ -1,31 +1,33 @@
-package br.edu.univas.si7.bd2.entities;
+package br.edu.univas.si5.bd2.entities;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="POSITION")
-public class Cargo implements Serializable { // nosso POJO
+public class Cargo implements Serializable {
 
 	@Id
 	@Column(name="CODE")
 	private Integer codigo;
 	
-	@Column(name="NAME", nullable=false, length=30)
+	@Column(name="NAME")
 	private String nome;
 
+	@Column(name="WAGE")
+	private float salario;
+	
+	@OneToMany(mappedBy="cargo") //o padrão é LAZY
+	private Set<Funcionario> funcionarios;
+
 	public Cargo() {
-
-	}
-
-	public Cargo(int codigo, String nome) {
-		super();
-		this.codigo = codigo;
-		this.nome = nome;
 	}
 
 	public Integer getCodigo() {
@@ -44,37 +46,24 @@ public class Cargo implements Serializable { // nosso POJO
 		this.nome = nome;
 	}
 
+	public float getSalario() {
+		return salario;
+	}
+
+	public void setSalario(float salario) {
+		this.salario = salario;
+	}
+
+	public Set<Funcionario> getFuncionarios() {
+		return funcionarios;
+	}
+
+	public void setFuncionarios(Set<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
+	}
+
 	@Override
 	public String toString() {
-		return "Cargo [codigo=" + codigo + ", nome=" + nome + "]";
+		return "Cargo [codigo=" + codigo + ", nome=" + nome + ", salario=" + salario + "]";
 	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + codigo;
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Cargo other = (Cargo) obj;
-		if (codigo != other.codigo)
-			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		return true;
-	}
-
 }
