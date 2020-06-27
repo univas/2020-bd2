@@ -13,7 +13,7 @@ public class Pratica3 {
 		City objCity = new City();
 		//não precisa setar o IBGE, porque ele será gerado pela sequence
 		objCity.setName("Pouso Alegre");
-		objCity.setState("MG");
+//		objCity.setState("MG");
 		objCity.setArea(123); //valor qualquer de teste
 		
 		//obter o EntityManager

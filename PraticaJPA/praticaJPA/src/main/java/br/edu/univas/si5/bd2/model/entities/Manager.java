@@ -51,5 +51,10 @@ public class Manager implements Serializable {
 	public void setStart(Date start) {
 		this.start = start;
 	}
+
+	@Override
+	public String toString() {
+		return "Manager [registry=" + registry + ", name=" + name + ", start=" + start + "]";
+	}
 	
 }

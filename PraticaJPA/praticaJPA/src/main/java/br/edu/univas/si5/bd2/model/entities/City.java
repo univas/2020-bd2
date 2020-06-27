@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -22,8 +25,13 @@ public class City {
 	@Column(name="NOME")
 	private String name;
 
-	@Column(name="ESTADO")
-	private String state;
+	@OneToOne
+	@JoinColumn(name="REGISTRO_FK")
+	private Manager manager;
+	
+	@ManyToOne
+	@JoinColumn(name="IBGEUF_FK")
+	private State state;
 
 	public City() {
 	}
@@ -52,12 +60,24 @@ public class City {
 		this.name = name;
 	}
 
-	public String getState() {
+	public Manager getManager() {
+		return manager;
+	}
+
+	public void setManager(Manager manager) {
+		this.manager = manager;
+	}
+
+	public State getState() {
 		return state;
 	}
 
-	public void setState(String state) {
+	public void setState(State state) {
 		this.state = state;
 	}
 
+	@Override
+	public String toString() {
+		return "City [ibge=" + ibge + ", area=" + area + ", name=" + name + ", manager=" + manager + "]";
+	}
 }
